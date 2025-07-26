@@ -75,7 +75,17 @@ export default function QRCodeGenerator() {
       <button
         onClick={() => {
           const canvas = document.querySelector('canvas')
-          const pngUrl = canvas.toDataURL('image/png')
+
+          // Check if canvas exists
+          if (!canvas) {
+            console.error('No canvas element found')
+            return
+          }
+
+          // Type assertion if using TypeScript
+          const pngUrl = (canvas as HTMLCanvasElement).toDataURL('image/png')
+
+          // Create download link
           const link = document.createElement('a')
           link.href = pngUrl
           link.download = 'qrcode.png'
