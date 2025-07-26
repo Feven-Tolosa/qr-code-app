@@ -1,7 +1,7 @@
 'use client' // Mark as Client Component in Next.js 15
 
+import { QRCodeCanvas } from 'qrcode.react'
 import { useState } from 'react'
-import QRCode from 'qrcode.react'
 
 export default function QRCodeGenerator() {
   const [text, setText] = useState('https://nextjs.org')
@@ -63,7 +63,7 @@ export default function QRCodeGenerator() {
       </div>
 
       <div className='p-4 border rounded bg-white'>
-        <QRCode
+        <QRCodeCanvas
           value={text}
           size={size}
           bgColor={bgColor}
